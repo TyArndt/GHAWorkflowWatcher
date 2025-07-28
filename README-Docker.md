@@ -21,18 +21,18 @@ docker-compose down
 
 ```bash
 # Build the image
-docker build -t github-workflow-server .
+docker build -t GHAWorkflowWatcher .
 
 # Create a volume for data persistence
 docker volume create workflow_data
 
 # Run the container
 docker run -d \
-  --name github-workflow-server \
+  --name GHAWorkflowWatcher \
   -p 8080:8080 \
   -p 8081:8081 \
   -v workflow_data:/app/data \
-  github-workflow-server
+  GHAWorkflowWatcher
 ```
 
 ## Access Points
@@ -51,7 +51,7 @@ The container uses the following configuration:
 - **Database**: Stored in `/app/data/github_workflows.db` (persisted via volume)
 - **Backend Port**: 8081
 - **Frontend Port**: 8080
-- **Default Secret**: `workflow-dashboard-secret-2024`
+- **Default Secret**: `workflow-dashboard-secret`
 
 ### Environment Variables
 
@@ -60,7 +60,7 @@ You can override configuration using environment variables:
 ```yaml
 # docker-compose.yml
 environment:
-  - TZ=America/New_York  # Set timezone
+  - TZ=America/Chicago  # Set timezone
 ```
 
 ## Data Persistence
@@ -93,7 +93,7 @@ Check health status:
 ```bash
 docker-compose ps
 # or
-docker inspect github-workflow-server
+docker inspect GHAWorkflowWatcher
 ```
 
 ## Logs
@@ -104,7 +104,7 @@ View real-time logs:
 docker-compose logs -f
 
 # Specific service
-docker logs -f github-workflow-server
+docker logs -f GHAWorkflowWatcher
 ```
 
 ## Updating
@@ -132,7 +132,7 @@ ports:
 If you encounter permission issues:
 ```bash
 # Check volume permissions
-docker exec -it github-workflow-server ls -la /app/data/
+docker exec -it GHAWorkflowWatcher ls -la /app/data/
 ```
 
 ### Database Issues

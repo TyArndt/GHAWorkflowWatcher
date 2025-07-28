@@ -2,7 +2,7 @@
 
 A real-time dashboard and API server for monitoring GitHub workflow runs and jobs. Receive webhook events from GitHub Actions and visualize workflow status with an interactive web interface.
 
-![Dashboard Preview](https://img.shields.io/badge/Status-Production%20Ready-brightgreen) ![Python](https://img.shields.io/badge/Python-3.13-blue) ![Flask](https://img.shields.io/badge/Flask-3.0-green) ![Docker](https://img.shields.io/badge/Docker-Ready-blue)
+![Dashboard Preview](https://img.shields.io/badge/Status-Production%20Ready-brightgreen) ![Python](https://img.shields.io/badge/Python-3.12-blue) ![Flask](https://img.shields.io/badge/Flask-3.0-green) ![Docker](https://img.shields.io/badge/Docker-Ready-blue)
 
 ## ✨ Features
 
@@ -54,8 +54,8 @@ A real-time dashboard and API server for monitoring GitHub workflow runs and job
 
 ```bash
 # Clone the repository
-git clone <repository-url>
-cd webserver
+git clone https://github.com/TyArndt/GHAWorkflowWatcher.git
+cd GHAWorkflowWatcher
 
 # Start with Docker Compose
 docker-compose up -d
@@ -248,8 +248,8 @@ webserver/
 
 ```bash
 # Clone repository
-git clone <repository-url>
-cd webserver
+git clone 
+cd GHAWorkflowWatcher
 
 # Create virtual environment
 python -m venv venv
