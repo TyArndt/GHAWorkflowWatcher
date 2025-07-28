@@ -4,6 +4,9 @@ A real-time dashboard and API server for monitoring GitHub workflow runs and job
 
 ![Dashboard Preview](https://img.shields.io/badge/Status-Production%20Ready-brightgreen) ![Python](https://img.shields.io/badge/Python-3.12-blue) ![Flask](https://img.shields.io/badge/Flask-3.0-green) ![Docker](https://img.shields.io/badge/Docker-Ready-blue)
 
+<img width="1902" height="1068" alt="image" src="https://github.com/user-attachments/assets/d3d08ef5-a05a-4f5b-a175-c128d7ce0d1d" />
+
+
 ## ✨ Features
 
 ### 🔄 Real-Time Monitoring
