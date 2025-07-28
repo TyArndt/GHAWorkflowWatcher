@@ -1,0 +1,79 @@
+# GitHub Workflow Webhook Server - Fly.io Configuration
+
+app = "github-workflow-server"
+primary_region = "ord"  # Chicago - change to your preferred region
+
+[build]
+
+[env]
+  TZ = "UTC"
+
+[experimental]
+  auto_rollback = true
+
+[[mounts]]
+  source = "workflow_data"
+  destination = "/app/data"
+
+[[services]]
+  protocol = "tcp"
+  internal_port = 8080
+  processes = ["app"]
+
+  [[services.ports]]
+    port = 80
+    handlers = ["http"]
+    force_https = true
+
+  [[services.ports]]
+    port = 443
+    handlers = ["http", "tls"]
+
+  [services.concurrency]
+    type = "connections"
+    hard_limit = 25
+    soft_limit = 20
+
+  [[services.tcp_checks]]
+    interval = "15s"
+    timeout = "2s"
+    grace_period = "1s"
+    port = 8080
+
+  [[services.http_checks]]
+    interval = "10s"
+    timeout = "2s"
+    grace_period = "5s"
+    method = "get"
+    path = "/api/v1/health"
+    protocol = "http"
+    tls_skip_verify = false
+    port = 8081
+
+    [services.http_checks.headers]
+      Content-Type = "application/json"
+
+[[services]]
+  protocol = "tcp"
+  internal_port = 8081
+  processes = ["app"]
+
+  [[services.ports]]
+    port = 8081
+    handlers = ["http"]
+
+  [services.concurrency]
+    type = "connections"
+    hard_limit = 25
+    soft_limit = 20
+
+  [[services.tcp_checks]]
+    interval = "15s"
+    timeout = "2s"
+    grace_period = "1s"
+    port = 8081
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 256

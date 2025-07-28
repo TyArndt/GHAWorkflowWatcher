@@ -1,0 +1,19 @@
+{
+  "database": {
+    "path": "/app/data/github_workflows.db"
+  },
+  "backend": {
+    "host": "0.0.0.0",
+    "port": 8081
+  },
+  "frontend": {
+    "host": "0.0.0.0",
+    "port": 8080
+  },
+  "shared": {
+    "secret": "workflow-dashboard-secret-2024"
+  },
+  "webhook": {
+    "secret": null
+  }
+}

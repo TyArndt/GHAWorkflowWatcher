@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  workflow-server:
+    build: .
+    container_name: github-workflow-server
+    ports:
+      - "8080:8080"  # Frontend
+      - "8081:8081"  # Backend API
+    volumes:
+      - workflow_data:/app/data
+    environment:
+      - TZ=UTC
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8081/api/v1/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+volumes:
+  workflow_data:
+    driver: local
