@@ -34,9 +34,9 @@ A real-time dashboard and API server for monitoring GitHub workflow runs and job
 
 ```
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   GitHub Actions   │    │   Webhook Server    │    │   Frontend Dashboard │
-│                 │    │                 │    │                 │
-│  Workflow Runs  │────▶│  Backend API    │◄───│  Real-time UI   │
+│   GitHub Actions│    │   Webhook Server│    │   Frontend      │
+│                 │    │                 │    │   Dashboard     │
+│  Workflow Runs  │──▶│  Backend API     │◄──│ Real-time UI    │
 │  Workflow Jobs  │    │  (Port 8081)    │    │  (Port 8080)    │
 │                 │    │                 │    │                 │
 └─────────────────┘    └─────────────────┘    └─────────────────┘
@@ -401,23 +401,3 @@ chmod 644 github_workflows.db
 chown user:user github_workflows.db
 ```
 
-**Webhook Not Receiving**
-1. Check firewall settings
-2. Verify webhook URL is accessible
-3. Check GitHub webhook delivery logs
-4. Validate webhook secret configuration
-
-## 🎯 Roadmap
-
-- [ ] **Multi-repository Support**: Dashboard for multiple repositories
-- [ ] **Advanced Filtering**: Custom date ranges and complex queries
-- [ ] **Notification System**: Email/Slack notifications for workflow status
-- [ ] **Metrics Dashboard**: Historical analytics and trend analysis
-- [ ] **User Authentication**: Multi-user support with role-based access
-- [ ] **API Rate Limiting**: Enhanced security and performance
-- [ ] **Backup System**: Automated database backups
-- [ ] **Plugin System**: Extensible architecture for custom integrations
-
----
-
-**Made with ❤️ for the GitHub Actions community**

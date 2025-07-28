@@ -11,7 +11,7 @@
     "port": 8080
   },
   "shared": {
-    "secret": "workflow-dashboard-secret-2024"
+    "secret": "workflow-dashboard-secret"
   },
   "webhook": {
     "secret": null
